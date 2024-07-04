@@ -2,6 +2,7 @@ package main
 
 import (
 	"bufio"
+	"encoding/hex"
 	"fmt"
 	"os"
 )
@@ -29,12 +30,12 @@ func printFileBinary(file *os.File) {
 	var size int64 = stats.Size()
 	bytes := make([]byte, size)
 
-	bufr := bufio.NewReader(file)
-	_, err := bufr.Read(bytes)
+	buffer := bufio.NewReader(file)
+	_, err := buffer.Read(bytes)
 
 	if err != nil {
 		panic(err)
 	} else {
-		fmt.Println(bytes)
+		fmt.Println(hex.Dump(bytes))
 	}
 }
