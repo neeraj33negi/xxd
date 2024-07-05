@@ -2,7 +2,6 @@ package main
 
 import (
 	"flag"
-	"fmt"
 	"os"
 	"xxd"
 )
@@ -31,7 +30,6 @@ func main() {
 		panic("Provide the file")
 	} else {
 		defer f.Close()
-		hexCode := xxd.FileHex(f)
-		fmt.Print(hexCode)
+		xxd.FileHex(f)
 	}
 }
